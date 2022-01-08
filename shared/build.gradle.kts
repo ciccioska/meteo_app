@@ -1,34 +1,38 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
-    kotlin("multiplatform")
     id("com.android.library")
+    kotlin("multiplatform")
+    kotlin("plugin.serialization") version "1.6.10"
 }
 
 kotlin {
+    val ktorVersion = "1.6.0"
+    val libName = "shared"
+    val coroutinesVersion = "1.6.0"
+
     android()
 
-    val ktor_version = "1.6.7"
-    val serialization_version = "1.3.2"
-    val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget = when {
-        System.getenv("SDK_NAME")?.startsWith("iphoneos") == true -> ::iosArm64
-        System.getenv("NATIVE_ARCH")?.startsWith("arm") == true -> ::iosSimulatorArm64
-        else -> ::iosX64
-    }
-
-    iosTarget("ios") {
-        binaries {
-            framework {
-                baseName = "shared"
-            }
+    val xcf = XCFramework()
+    listOf(
+        iosX64(),
+        iosArm64(),
+        //iosSimulatorArm64() sure all ios dependencies support this target
+    ).forEach {
+        it.binaries.framework {
+            baseName = libName
+            xcf.add(this)
         }
     }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-core:$ktor_version")
-                implementation("io.ktor:ktor-client-cio:$ktor_version")
-                implementation("io.ktor:ktor-client-serialization:$ktor_version")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-cio:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
         val commonTest by getting {
@@ -39,7 +43,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:$ktor_version")
+                implementation("io.ktor:ktor-client-android:$ktorVersion")
             }
         }
         val androidTest by getting {
@@ -49,20 +53,35 @@ kotlin {
 
             }
         }
-        val iosMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-ios:$ktor_version")
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        //val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
+            if (onPhone) {
+                iosArm64("ios")
+            } else {
+                iosX64("ios")
             }
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+            }
+            //iosSimulatorArm64Main.dependsOn(this)
         }
-        val iosTest by getting
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        //val iosSimulatorArm64Test by getting
     }
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(26)
-        targetSdkVersion(31)
+        minSdk = 26
+        targetSdk = 31
     }
 }

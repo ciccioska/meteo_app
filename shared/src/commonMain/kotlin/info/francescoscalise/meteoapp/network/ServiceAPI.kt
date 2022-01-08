@@ -8,23 +8,31 @@ import io.ktor.client.features.json.*
 import io.ktor.client.request.*
 
 import io.ktor.client.features.json.serializer.KotlinxSerializer
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
 
-class Service {
+class ServiceAPI {
     companion object {
-        private const val AIR_VISUAL_ENDPOINT = "http://api.airvisual.com/v2/"
+        private const val AIR_VISUAL_ENDPOINT = "https://api.airvisual.com/v2/"
         private const val AIR_VISUAL_APIKEY = "05906369-b043-4664-9106-7eee43f367fe"
     }
 
     private val httpClient = HttpClient {
+        print("HttpClient created")
         install(JsonFeature) {
-            serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
-                prettyPrint = true
-                isLenient = true
-            })
+            val json = kotlinx.serialization.json.Json {
+                ignoreUnknownKeys = true
+                useAlternativeNames = false
+            }
+            serializer = KotlinxSerializer(json)
         }
     }
 
-    suspend fun getAllCountries(): List<Country> {
+    suspend fun getAllCountries(): ListCountryResponse {
         return httpClient.get(AIR_VISUAL_ENDPOINT + "countries"){
             parameter("key", AIR_VISUAL_APIKEY)
         }
@@ -62,5 +70,15 @@ class Service {
         }
     }
 
+    object CountrySerializer : KSerializer<Country> {
+        override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("country", PrimitiveKind.STRING)
+        override fun serialize(encoder: Encoder, value: Country) {
+            encoder.encodeString(value.name!!)
+        }
+
+        override fun deserialize(decoder: Decoder): Country {
+            return Country(decoder.decodeString())
+        }
+    }
 
 }
