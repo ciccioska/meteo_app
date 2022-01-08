@@ -1,19 +1,11 @@
 package info.francescoscalise.meteoapp.network
 
 import info.francescoscalise.meteoapp.entity.City
-import info.francescoscalise.meteoapp.entity.Country
-import info.francescoscalise.meteoapp.entity.State
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.request.*
 
 import io.ktor.client.features.json.serializer.KotlinxSerializer
-import kotlinx.serialization.KSerializer
-import kotlinx.serialization.descriptors.PrimitiveKind
-import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
-import kotlinx.serialization.descriptors.SerialDescriptor
-import kotlinx.serialization.encoding.Decoder
-import kotlinx.serialization.encoding.Encoder
 
 class ServiceAPI {
     companion object {
@@ -32,20 +24,20 @@ class ServiceAPI {
         }
     }
 
-    suspend fun getAllCountries(): ListCountryResponse {
+    suspend fun getAllCountries(): ListCountriesResponse {
         return httpClient.get(AIR_VISUAL_ENDPOINT + "countries"){
             parameter("key", AIR_VISUAL_APIKEY)
         }
     }
 
-    suspend fun getStates(country: String): List<State> {
+    suspend fun getStates(country: String): ListStatesResponse {
         return httpClient.get(AIR_VISUAL_ENDPOINT + "states"){
             parameter("key", AIR_VISUAL_APIKEY)
             parameter("country", country)
         }
     }
 
-    suspend fun getCities(country: String, state: String): List<City> {
+    suspend fun getCities(country: String, state: String): ListCitiesResponse {
         return  httpClient.get(AIR_VISUAL_ENDPOINT + "cities"){
             parameter("key", AIR_VISUAL_APIKEY)
             parameter("country", country)
@@ -53,7 +45,7 @@ class ServiceAPI {
         }
     }
 
-    suspend fun getNearestCity(latitude: Int, longitude: Int): City {
+    suspend fun getNearestCity(latitude: Int, longitude: Int): CityResponse {
         return  httpClient.get(AIR_VISUAL_ENDPOINT + "nearest_city"){
             parameter("key", AIR_VISUAL_APIKEY)
             parameter("lat", latitude)
@@ -61,8 +53,8 @@ class ServiceAPI {
         }
     }
 
-    suspend fun getCity(country: String, state: String, city: String): City {
-        return  httpClient.get(AIR_VISUAL_ENDPOINT + "nearest_city"){
+    suspend fun getCity(country: String, state: String, city: String): CityResponse {
+        return  httpClient.get(AIR_VISUAL_ENDPOINT + "city"){
             parameter("key", AIR_VISUAL_APIKEY)
             parameter("country", country)
             parameter("state", state)
