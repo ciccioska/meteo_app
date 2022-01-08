@@ -25,7 +25,7 @@ class AirVisualSDK {
         return serviceAPI.getCity(country.name, state.name, city.name).data!!
     }
 
-    @Throws(Exception::class) suspend fun getNearestCity(latitude: Int, longitude: Int): City{
+    @Throws(Exception::class) suspend fun getNearestCity(latitude: Double, longitude: Double): City{
         return serviceAPI.getNearestCity(latitude, longitude).data!!
     }
 }

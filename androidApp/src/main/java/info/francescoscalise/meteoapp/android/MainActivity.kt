@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         mainScope.launch {
             kotlin.runCatching {
-                sdk.getCity(Country("Italy"), State("Campania"), City("Naples"))
+                sdk.getNearestCity(38.9098, 16.5877)
             }.onSuccess {
                 print(it)
             }.onFailure {

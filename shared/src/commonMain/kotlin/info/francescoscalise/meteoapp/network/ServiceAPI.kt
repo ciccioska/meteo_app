@@ -45,7 +45,7 @@ class ServiceAPI {
         }
     }
 
-    suspend fun getNearestCity(latitude: Int, longitude: Int): CityResponse {
+    suspend fun getNearestCity(latitude: Double, longitude: Double): CityResponse {
         return  httpClient.get(AIR_VISUAL_ENDPOINT + "nearest_city"){
             parameter("key", AIR_VISUAL_APIKEY)
             parameter("lat", latitude)
