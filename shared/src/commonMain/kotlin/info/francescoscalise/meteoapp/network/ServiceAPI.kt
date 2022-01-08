@@ -69,16 +69,4 @@ class ServiceAPI {
             parameter("city", city)
         }
     }
-
-    object CountrySerializer : KSerializer<Country> {
-        override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("country", PrimitiveKind.STRING)
-        override fun serialize(encoder: Encoder, value: Country) {
-            encoder.encodeString(value.name!!)
-        }
-
-        override fun deserialize(decoder: Decoder): Country {
-            return Country(decoder.decodeString())
-        }
-    }
-
 }
