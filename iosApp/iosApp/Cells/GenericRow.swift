@@ -9,13 +9,13 @@
 import SwiftUI
 import shared
 
-struct CountryRow: View {
-    var country: Country
+struct GenericRow: View {
+    var value: String
 
     var body: some View {
         HStack() {
             VStack(alignment: .leading, spacing: 10.0) {
-                Text(country.name)
+                Text(value)
             }
             Spacer()
         }

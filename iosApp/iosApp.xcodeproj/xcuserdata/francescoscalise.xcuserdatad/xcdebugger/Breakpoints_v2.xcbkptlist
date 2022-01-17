@@ -7,32 +7,109 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5AE9558B-1C5B-45A3-87CD-7AA0F7E37096"
-            shouldBeEnabled = "Yes"
+            uuid = "1A426DC6-289D-4C4A-A8B3-9ADC8A118AB7"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosApp/ContentView.swift"
+            filePath = "iosApp/CityDetail.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "loadCountries()"
-            landmarkType = "7">
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "CityDetail"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "1A426DC6-289D-4C4A-A8B3-9ADC8A118AB7 - 738f42c07d5e5067"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosApp.CityDetail.city.getter : Swift.Optional&lt;__C.SharedCity&gt;"
+                  moduleName = "iosApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/francescoscalise/Repositories/MeteoApp/iosApp/iosApp/CityDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "1A426DC6-289D-4C4A-A8B3-9ADC8A118AB7 - a16a69969240699b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosApp.CityDetail.city.setter : Swift.Optional&lt;__C.SharedCity&gt;"
+                  moduleName = "iosApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/francescoscalise/Repositories/MeteoApp/iosApp/iosApp/CityDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "181">
+               </Location>
+               <Location
+                  uuid = "1A426DC6-289D-4C4A-A8B3-9ADC8A118AB7 - cf99eaa845b4cfc9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosApp.CityDetail.city.modify : Swift.Optional&lt;__C.SharedCity&gt;"
+                  moduleName = "iosApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/francescoscalise/Repositories/MeteoApp/iosApp/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "74">
+               </Location>
+               <Location
+                  uuid = "1A426DC6-289D-4C4A-A8B3-9ADC8A118AB7 - 5e30dec9e39a0a97"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosApp.CityDetail.city.modify : Swift.Optional&lt;__C.SharedCity&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "iosApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/francescoscalise/Repositories/MeteoApp/iosApp/iosApp/CityDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "1A426DC6-289D-4C4A-A8B3-9ADC8A118AB7 - d0e6049cb864d8a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iosApp.CityDetail.$city.getter : SwiftUI.Binding&lt;Swift.Optional&lt;__C.SharedCity&gt;&gt;"
+                  moduleName = "iosApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/francescoscalise/Repositories/MeteoApp/iosApp/iosApp/CityDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "210">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E5FB0C88-5D8E-478E-B8FD-FEAF01C14D1E"
+            uuid = "2FAC445F-78F2-40E5-8FC0-013C7F0A934F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosApp/ContentView.swift"
+            filePath = "iosApp/CountrySelectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "loadCountries()"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "init(sdk:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

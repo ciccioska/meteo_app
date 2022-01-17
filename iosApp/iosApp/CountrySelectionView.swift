@@ -1,17 +1,15 @@
 import SwiftUI
 import shared
 
-struct ContentView: View {
-  @ObservedObject private(set) var viewModel: ViewModel
-
+struct CountrySelectionView: View {
+    @Binding var selectedCountry: Country
+    
+    @ObservedObject private(set) var viewModel: ViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         NavigationView {
             listView()
             .navigationBarTitle("Select Country")
-            .navigationBarItems(trailing:
-                Button("Reload") {
-                    self.viewModel.loadCountries()
-            })
         }
     }
 
@@ -21,15 +19,19 @@ struct ContentView: View {
             return AnyView(Text("Loading...").multilineTextAlignment(.center))
         case .result(let countries):
             return AnyView(List(countries) { country in
-                CountryRow(country: country)
-            })
+                GenericRow(value: country.name).onTapGesture {
+                        selectedCountry = country
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            )
         case .error(let description):
             return AnyView(Text(description).multilineTextAlignment(.center))
         }
     }
 }
 
-extension ContentView {
+extension CountrySelectionView {
     
     enum LoadableCountry {
         case loading
