@@ -10,7 +10,7 @@ plugins {
 kotlin {
     val ktorVersion = "1.6.0"
     val libName = "shared"
-    val coroutinesVersion = "1.6.0"
+    val coroutinesVersion = "1.4.2-native-mt"
 
     android()
 
@@ -18,7 +18,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        //iosSimulatorArm64() sure all ios dependencies support this target
+        //iosSimulatorArm64()// sure all ios dependencies support this target
     ).forEach {
         it.binaries.framework {
             baseName = libName
@@ -71,8 +71,8 @@ kotlin {
             }
             //iosSimulatorArm64Main.dependsOn(this)
         }
-        val iosX64Test by getting
-        val iosArm64Test by getting
+        //val iosX64Test by getting
+        //val iosArm64Test by getting
         //val iosSimulatorArm64Test by getting
     }
 }

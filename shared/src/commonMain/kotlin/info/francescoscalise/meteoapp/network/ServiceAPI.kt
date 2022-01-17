@@ -18,7 +18,7 @@ class ServiceAPI {
         install(JsonFeature) {
             val json = kotlinx.serialization.json.Json {
                 ignoreUnknownKeys = true
-                useAlternativeNames = false
+                //useAlternativeNames = false
             }
             serializer = KotlinxSerializer(json)
         }

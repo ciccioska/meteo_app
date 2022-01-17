@@ -4,12 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import info.francescoscalise.meteoapp.AirVisualSDK
-import info.francescoscalise.meteoapp.entity.City
-import info.francescoscalise.meteoapp.entity.Country
-import info.francescoscalise.meteoapp.entity.State
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-
 
 class MainActivity : AppCompatActivity() {
     private val mainScope = MainScope()
