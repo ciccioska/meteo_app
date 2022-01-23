@@ -57,6 +57,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D034BDF279C6C49008C20CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D32C6B4278F0A6800A4E656 /* MainContentView.swift */,
+				7555FF82242A565900829871 /* CountrySelectionView.swift */,
+				5D32C6B72792EA0C00A4E656 /* NationalStateSelectionView.swift */,
+				5D32C6B62792EA0C00A4E656 /* CitySelectionView.swift */,
+				5D32C6BA27930E9900A4E656 /* CityDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5DB2E3582785B4720024FE29 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,14 +97,10 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				5D034BDF279C6C49008C20CF /* Views */,
 				5DB2E3582785B4720024FE29 /* Cells */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
-				5D32C6B4278F0A6800A4E656 /* MainContentView.swift */,
-				7555FF82242A565900829871 /* CountrySelectionView.swift */,
-				5D32C6B72792EA0C00A4E656 /* NationalStateSelectionView.swift */,
-				5D32C6B62792EA0C00A4E656 /* CitySelectionView.swift */,
-				5D32C6BA27930E9900A4E656 /* CityDetailView.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -327,7 +335,6 @@
 		7555FFA6242A565B00829871 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3PUU3256X2;
@@ -354,7 +361,6 @@
 		7555FFA7242A565B00829871 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
