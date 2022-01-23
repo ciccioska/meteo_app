@@ -54,7 +54,7 @@ extension CountrySelectionView {
                 if let countries = countries {
                     self.countries = .result(countries)
                 } else {
-                    self.countries = .error(error?.localizedDescription ?? "error")
+                    self.countries = .error(error?.localizedDescription ?? "An error occurred while loafding countries")
                 }
             })
         }

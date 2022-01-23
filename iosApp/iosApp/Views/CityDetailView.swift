@@ -31,10 +31,10 @@ struct CityDetailView: View {
                     .foregroundColor(Color.blue)
                 
                 Section(header: Text("Weather")) {
-                    Text("Temperature: \(city.current?.weather?.temperature ?? 0.0)")
-                    Text("Pressure: \(city.current?.weather?.pressure ?? 0.0)")
-                    Text("Humidity: \(city.current?.weather?.humidity ?? 0.0)")
-                    Text("WindSpeed:\(city.current?.weather?.windSpeed ?? 0.0)")
+                    Text("Temperature: \(city.current?.weather?.temperature ?? 0.0)°C")
+                    Text("Pressure: \(city.current?.weather?.pressure ?? 0.0) bar")
+                    Text("Humidity: \(city.current?.weather?.humidity ?? 0.0) %")
+                    Text("WindSpeed:\(city.current?.weather?.windSpeed ?? 0.0) m/s")
                 }
                 Section(header: Text("Pollution")) {
                     Text("\(city.current?.pollution?.polluteMainUS ?? "Indictor 1"): \(city.current?.pollution?.pollutionIndicatorUS ?? 0.0)")
